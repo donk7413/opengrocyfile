@@ -32,6 +32,12 @@ class RecipesService extends BaseService
 		$sql = 'SELECT * FROM recipes_resolved WHERE recipe_id == '.$recipeId;
 		return $this->getDataBaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
+	
+	public function GetRecipesResolvedFulfilled()
+	{
+		$sql = 'SELECT * FROM recipes_resolved WHERE need_fulfilled == 1';
+		return $this->getDataBaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+	}
 
 	public function AddNotFulfilledProductsToShoppingList($recipeId, $excludedProductIds = null)
 	{

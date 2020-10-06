@@ -60,4 +60,20 @@ class RecipesApiController extends BaseApiController
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
+	
+	public function GetRecipeFulfilled(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try
+		{
+			if(!isset($args['recipeId']))
+			{
+				return $this->ApiResponse($response, $this->getRecipesService()->GetRecipesResolvedFulfilled());
+			}
+
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 }
