@@ -215,7 +215,7 @@ $app->group('/api', function(RouteCollectorProxy $group)
 	{
 		$group->post('/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist', '\Grocy\Controllers\RecipesApiController:AddNotFulfilledProductsToShoppingList');
 		$group->get('/recipes/{recipeId}/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
-		$group->get('/recipes//fulfilled', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfilled');
+		$group->get('/recipes/fulfilled', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfilled');
 		$group->post('/recipes/{recipeId}/consume', '\Grocy\Controllers\RecipesApiController:ConsumeRecipe');
 		$group->get('/recipes/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
 	}
