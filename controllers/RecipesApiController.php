@@ -61,14 +61,13 @@ class RecipesApiController extends BaseApiController
 		}
 	}
 	
-	public function GetRecipeFulfilled(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetRecipeFulfilled(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response)
 	{
 		try
 		{
-			if(!isset($args['recipeId']))
-			{
+			
 				return $this->ApiResponse($response, $this->getRecipesService()->GetRecipesResolvedFulfilled());
-			}
+			
 
 		}
 		catch (\Exception $ex)
