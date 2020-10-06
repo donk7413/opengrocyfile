@@ -143,7 +143,8 @@ class GenericEntityApiController extends BaseApiController
 			{
 				if($args['entity'] == "recipes_pos")
 				{
-					return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}()->where('recipe_id == '. $args['searchString']));
+					
+					return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}()->where($args['searchString']));
 				}
 				else
 				{
