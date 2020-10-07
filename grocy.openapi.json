@@ -589,13 +589,22 @@
 				}
 			}
 		},
-		"/objects/query/{searchString}": {
+		"/objects/{entity}/query/{searchString}": {
 			"get": {
 				"summary": "Returns all objects of the given entity where the field \"name\" contains the search string (so only works for entities which have that field)",
 				"tags": [
 					"Generic entity interactions"
 				],
 				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					},
 					{
 						"in": "path",
 						"name": "searchString",
@@ -612,7 +621,32 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"type": "array"
+									"type": "array",
+									"items": {
+										"oneOf": [
+											{
+												"$ref": "#/components/schemas/Product"
+											},
+											{
+												"$ref": "#/components/schemas/Chore"
+											},
+											{
+												"$ref": "#/components/schemas/Battery"
+											},
+											{
+												"$ref": "#/components/schemas/Location"
+											},
+											{
+												"$ref": "#/components/schemas/QuantityUnit"
+											},
+											{
+												"$ref": "#/components/schemas/ShoppingListItem"
+											},
+											{
+												"$ref": "#/components/schemas/StockEntry"
+											}
+										]
+									}
 								}
 							}
 						}

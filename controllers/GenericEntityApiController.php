@@ -166,7 +166,8 @@ class GenericEntityApiController extends BaseApiController
 	
 	public function QueryObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-	
+		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
+		{
 			try
 			{
 				
@@ -179,7 +180,11 @@ class GenericEntityApiController extends BaseApiController
 			{
 				return $this->GenericErrorResponse($response, "Erreur : ".$ex->getMessage( )." code :".(int)$ex->getCode( ));
 			}
-		
+		}
+		else
+		{
+			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
+		}
 	}
 
 	public function GetUserfields(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
