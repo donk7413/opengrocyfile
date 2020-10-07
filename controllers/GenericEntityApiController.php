@@ -162,6 +162,25 @@ class GenericEntityApiController extends BaseApiController
 			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
 		}
 	}
+	
+	
+	public function QueryObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+	
+			try
+			{
+				
+				$sql = $args['searchString'];
+				return $this->ApiResponse($response, $this->getDataBaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ));;
+				
+				
+			}
+			catch (\PDOException $ex)
+			{
+				return $this->GenericErrorResponse($response, "Erreur : ".$ex->getMessage( )." code :".(int)$ex->getCode( ));
+			}
+		
+	}
 
 	public function GetUserfields(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{

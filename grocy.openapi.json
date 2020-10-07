@@ -589,6 +589,47 @@
 				}
 			}
 		},
+		"/objects/query/{searchString}": {
+			"get": {
+				"summary": "Returns all objects of the given entity where the field \"name\" contains the search string (so only works for entities which have that field)",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "searchString",
+						"required": true,
+						"description": "The search string",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An entity object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/userfields/{entity}/{objectId}": {
 			"get": {
 				"summary": "Returns all userfields with their values of the given object of the given entity",
