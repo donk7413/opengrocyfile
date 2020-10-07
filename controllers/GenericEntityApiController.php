@@ -148,13 +148,13 @@ class GenericEntityApiController extends BaseApiController
 				}
 				else
 				{
-					return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
+					return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}()->where($args['searchString']));
 				}
 				
 			}
 			catch (\PDOException $ex)
 			{
-				return $this->GenericErrorResponse($response, 'The given entity has no field "name"');
+				return $this->GenericErrorResponse($response, "Erreur : ".$ex->getMessage( )." code :".(int)$ex->getCode( ));
 			}
 		}
 		else
