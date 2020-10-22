@@ -151,7 +151,7 @@
 								@if(!empty($recipePosition->variable_amount))
 									{{ $recipePosition->variable_amount }}
 								@else
-									<span class="locale-number locale-number-quantity-amount">@if($recipePosition->amount == round($recipePosition->amount,2)){{ round($recipePosition->amount,2) }}@else{{ $recipePosition->amount }}@endif</span>
+									<span class="locale-number locale-number-quantity-amount">@if($recipePosition->amount == round($recipePosition->amount,2)){{ round($recipePosition->amount,2) }}@else{{ $recipePosition->amount }}@endif TEST</span>
 								@endif
 								{{ $__n($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural) }}
 
