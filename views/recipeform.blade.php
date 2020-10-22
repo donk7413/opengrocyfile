@@ -158,6 +158,7 @@
 								@if(!empty($recipePosition->variable_amount))
 									<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
 								@endif
+								<p>LOLLO</p>
 							</td>
 							<td class="fit-content">
 								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $__t('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
