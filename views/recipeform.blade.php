@@ -139,7 +139,7 @@
 							<td>
 								@php
 									$product = FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id);
-									
+									$test = $recipePosition->amount;
 									$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
 									$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
 									$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $recipePosition->qu_id);
@@ -151,7 +151,7 @@
 									
 									
 								@endphp
-								<span>	{{ $recipePosition->amount}}</span>
+								<span>	{{ $test}}</span>
 								<span>{{ $productQuConversion->factor}}</span>
 								@if(!empty($recipePosition->variable_amount))
 									
