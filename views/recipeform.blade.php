@@ -151,7 +151,7 @@
 									
 									
 								@endphp
-								<span>test {{ $recipePosition}}</span>
+								<span>test {{ $test}}</span>
 								<span>test2 {{ $productQuConversion->factor}}</span>
 								@if(!empty($recipePosition->variable_amount))
 									
