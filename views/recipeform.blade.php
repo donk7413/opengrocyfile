@@ -139,7 +139,7 @@
 							<td>
 								@php
 									$product = FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id);
-									error_log('message here.');
+									echo 'console.log("Database connected!")';
 									$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
 									$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
 									$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $recipePosition->qu_id);
@@ -158,7 +158,7 @@
 								@if(!empty($recipePosition->variable_amount))
 									<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
 								@endif
-								<p>LOLLO</p>
+							
 							</td>
 							<td class="fit-content">
 								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $__t('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
