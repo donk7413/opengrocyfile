@@ -151,7 +151,7 @@
 									
 									
 								@endphp
-								<span>	{{ print_r($recipePosition, true);}}</span>
+							
 								<span>{{ $productQuConversion->factor}}</span>
 								@if(!empty($recipePosition->variable_amount))
 									
