@@ -145,7 +145,7 @@
 									$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $recipePosition->qu_id);
 									if ($productQuConversion)
 									{
-										$recipePosition->amount = $recipePosition->amount * $productQuConversion->factor;
+										$recipePosition->amount = str_replace(',', '.', $recipePosition->amount); * $productQuConversion->factor;
 										
 									}
 									
