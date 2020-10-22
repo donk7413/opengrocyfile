@@ -146,11 +146,11 @@
 									if ($productQuConversion)
 									{
 										$recipePosition->amount = $recipePosition->amount * $productQuConversion->factor;
-										<span>$recipePosition->amount</span>
-										<span>$productQuConversion->factor</span>
+										
 									}
 								@endphp
 								@if(!empty($recipePosition->variable_amount))
+									
 									{{ $recipePosition->variable_amount }}
 								@else
 									<span class="locale-number locale-number-quantity-amount">@if($recipePosition->amount == round($recipePosition->amount,2)){{ round($recipePosition->amount,2) }}@else{{ $recipePosition->amount }}@endif TEST</span>
@@ -160,7 +160,8 @@
 								@if(!empty($recipePosition->variable_amount))
 									<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
 								@endif
-							
+								<span>@$recipePosition->amount</span>
+								<span>@$productQuConversion->factor</span>
 							</td>
 							<td class="fit-content">
 								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $__t('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
