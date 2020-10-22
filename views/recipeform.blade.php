@@ -146,6 +146,8 @@
 									if ($productQuConversion)
 									{
 										$recipePosition->amount = $recipePosition->amount * $productQuConversion->factor;
+										<span>$recipePosition->amount</span>
+										<span>$productQuConversion->factor</span>
 									}
 								@endphp
 								@if(!empty($recipePosition->variable_amount))
