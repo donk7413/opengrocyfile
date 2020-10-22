@@ -146,13 +146,13 @@
 									if ($productQuConversion)
 									{
 										$recipePosition->amount = $recipePosition->amount * $productQuConversion->factor;
-										<span>$productQuConversion->factor</span>
+										
 									}
 									
 									
 								@endphp
 								<span>	{{ $recipePosition->amount}}</span>
-								
+								<span>{{ $productQuConversion->factor}}</span>
 								@if(!empty($recipePosition->variable_amount))
 									
 									{{ $recipePosition->variable_amount }}
