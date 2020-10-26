@@ -1222,6 +1222,29 @@
 				}
 			}
 		},
+		"/stockcomplete": {
+			"get": {
+				"summary": "Returns all products which are currently in stock incl. the next expiring date per product and missing",
+				"tags": [
+					"Stock"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of CurrentStockResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentStockResponse"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/entry/{entryId}": {
 			"get": {
 				"summary": "Returns details of the given stock",

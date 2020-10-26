@@ -177,6 +177,7 @@ $app->group('/api', function(RouteCollectorProxy $group)
 	if (GROCY_FEATURE_FLAG_STOCK)
 	{
 		$group->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
+		$group->get('/stockcomplete', '\Grocy\Controllers\StockApiController:CurrentStockWithMissing');
 		$group->get('/stock/entry/{entryId}', '\Grocy\Controllers\StockApiController:StockEntry');
 		$group->put('/stock/entry/{entryId}', '\Grocy\Controllers\StockApiController:EditStockEntry');
 		$group->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatileStock');
